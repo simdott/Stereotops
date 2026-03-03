@@ -1,0 +1,55 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix ui:   <http://lv2plug.in/ns/extensions/ui#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+<urn:simdott:simondelaruotte>
+    a foaf:Person ;
+    foaf:name "Simon Delaruotte" ;
+    foaf:homepage <https://github.com/simdott/stereotops> .
+
+<urn:simdott:stereotops>
+    a lv2:Plugin ;
+    lv2:binary <stereotops.so> ;
+    doap:name "Stereotops" ;
+    doap:maintainer <urn:simdott:simondelaruotte> ;
+    doap:license <http://spdx.org/licenses/GPL-2.0-or-later> ;     
+    doap:description "An LV2 plugin to modify the audio's spatial width" ;        
+    rdfs:label "Stereotops" ;
+    lv2:port [
+        a lv2:AudioPort, lv2:InputPort ;
+        lv2:index 0 ;
+        lv2:symbol "input_left" ;
+        lv2:name "Input Left" ;
+    ], [
+        a lv2:AudioPort, lv2:InputPort ;
+        lv2:index 1 ;
+        lv2:symbol "input_right" ;
+        lv2:name "Input Right" ;
+    ], [
+        a lv2:AudioPort, lv2:OutputPort ;
+        lv2:index 2 ;
+        lv2:symbol "output_left" ;
+        lv2:name "Output Left" ;
+    ], [
+        a lv2:AudioPort, lv2:OutputPort ;
+        lv2:index 3 ;
+        lv2:symbol "output_right" ;
+        lv2:name "Output Right" ;
+    ], [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 4 ;
+        lv2:symbol "width" ;
+        lv2:name "Stereo Width" ;
+        lv2:default 0.0 ;
+        lv2:minimum -100.0 ; 
+        lv2:maximum 100.0 ;
+        lv2:scalePoint [ rdfs:label "Mono" ; rdf:value -100.0 ] ;
+        lv2:scalePoint [ rdfs:label "Normal" ; rdf:value 0.0 ] ;
+        lv2:scalePoint [ rdfs:label "Expanded" ; rdf:value 100.0 ] ;
+    ] .
