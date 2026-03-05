@@ -88,7 +88,7 @@ The Stereo Width control adjusts the stereo image:
    Or uninstall system-wide :
    sudo ./uninstall.sh
    
-### v1.0.0 (2025-03-03)
+### v1.0.0 (2026-03-03)
 
 - Initial release   
 
