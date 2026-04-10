@@ -19,7 +19,7 @@
     doap:name "Stereotops" ;
     doap:maintainer <urn:simdott:simondelaruotte> ;
     doap:license <http://spdx.org/licenses/GPL-2.0-or-later> ;     
-    doap:description "An LV2 plugin to modify the audio's spatial width" ;        
+    doap:description "Stereotops v1.0.1" ;        
     rdfs:label "Stereotops" ;
     lv2:port [
         a lv2:AudioPort, lv2:InputPort ;
